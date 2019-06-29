@@ -13,3 +13,4 @@ Note . If you clicked on Start then You to to wait for Some time Becoz it takes 
 
 # Screen Shot
 
+![Adfly Bot Screenshot](https://github.com/vkpdeveloper/Adfly-Bot/blob/master/ScreenShot.PNG?raw=true)
