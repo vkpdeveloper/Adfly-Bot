@@ -8,6 +8,10 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QSize
 import re
 import webbrowser
+import win32gui, win32con
+
+The_program_to_hide = win32gui.GetForegroundWindow()
+win32gui.ShowWindow(The_program_to_hide , win32con.SW_HIDE)
 
 class App(QMainWindow, QWidget):
 
