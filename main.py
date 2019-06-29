@@ -8,10 +8,6 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QSize
 import re
 import webbrowser
-import win32gui, win32con
-
-The_program_to_hide = win32gui.GetForegroundWindow()
-win32gui.ShowWindow(The_program_to_hide , win32con.SW_HIDE)
 
 class App(QMainWindow, QWidget):
 
@@ -29,10 +25,11 @@ class App(QMainWindow, QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.top, self.left, self.width, self.height)
         self.setWindowIcon(QIcon(self.iconName))
-        self.setAutoFillBackground(True)
-        p = self.palette()
-        p.setColor(self.backgroundRole(), Qt.white)
-        self.setPalette(p)
+        self.setStyleSheet("background:white")
+        # self.setAutoFillBackground(True)
+        # p = self.palette()
+        # p.setColor(self.backgroundRole(), Qt.white)
+        # self.setPalette(p)
         App.setMinimumSize(self, QSize(400, 400))
         App.setMaximumSize(self, QSize(400, 400))
         self.uiComponet()
@@ -41,34 +38,41 @@ class App(QMainWindow, QWidget):
     def uiComponet(self):
         self.lbl1 = QLabel("Enter Your URL Here : ", self)
         self.lbl1.setFixedWidth(300)
+        self.lbl1.setStyleSheet('color:#7b4397')
         self.lbl1.move(60, 40)
         self.url_box = QLineEdit(self)
         self.url_box.setFixedWidth(280)
         self.url_box.move(60, 70)
         self.url_box.setFocus()
+        self.url_box.setStyleSheet('color:#7b4397')
         self.font = self.url_box.font()
         self.font.setPointSize(12)
         self.url_box.setFont(self.font)
 
         self.lbl2 = QLabel("Number of Clicks You Want : ", self)
         self.lbl2.move(60, 110)
+        self.lbl2.setStyleSheet('color:#7b4397')
         self.lbl2.setFixedWidth(200)
         self.view_box = QLineEdit(self)
         self.view_box.setFixedWidth(280)
+        self.view_box.setStyleSheet('color:#7b4397')
         self.view_box.move(60, 140)
         self.font = self.view_box.font()
         self.font.setPointSize(12)
         self.view_box.setFont(self.font)
 
         self.start_btn = QPushButton("Start", self)
+        self.start_btn.setStyleSheet("background-color:#7b4397;color:white")
         self.start_btn.move(110, 200)
         self.start_btn.clicked.connect(self.onStart)
 
         self.htu_btn = QPushButton("How to Use ?", self)
+        self.htu_btn.setStyleSheet("background-color:#dc2430;color:white")
         self.htu_btn.move(200, 200)
         self.htu_btn.clicked.connect(self.onHow)
 
         self.about_btn = QPushButton("About Developer", self)
+        self.about_btn.setStyleSheet("background-color:#12c2e9;color:white")
         self.about_btn.move(160, 250)
         self.about_btn.clicked.connect(self.onAbout)
 
